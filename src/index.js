@@ -1,8 +1,8 @@
 module.exports = function getZerosCount(number, base) {
-  if(base == 1) { return number + "!"}
-  let simpleMult = getSimpleMult(base);
-  let keys = getKeys(simpleMult);
-  let result = [];
+  if(base === 1) { return number + "!"}
+  const simpleMult = getSimpleMult(base);
+  const keys = getKeys(simpleMult);
+  const result = [];
   keys.forEach(key => {
     let zeros = 0;
     for(let i = 1;  Math.pow(key, i) <= number; i++) {
@@ -15,11 +15,11 @@ module.exports = function getZerosCount(number, base) {
 }
 
 function getSimpleMult(base) {
-  let res = {};
+  const res = {};
   let temp = base;
   while(temp > 1) {
     for(let i = 2; ; i++) {
-      if(temp % i == 0) {
+      if(temp % i === 0) {
         res[i] ? res[i] += 1: res[i] =1;
         temp /= i;
         break;
@@ -30,7 +30,7 @@ function getSimpleMult(base) {
 }
 
 function getKeys(obj) {
-  let keys = Object.keys(obj);
+  const keys = Object.keys(obj);
   keys.sort((a, b) => a - b);
   return keys;
 }
